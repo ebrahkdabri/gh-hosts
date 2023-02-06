@@ -1,0 +1,63 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
+
+name: gh-hosts CI
+
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: szenius/set-timezone@v1.0
+      with:
+        timezoneLinux: "Asia/Shanghai"
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+
+    - name: Build with Gradle
+      uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+
+    - name: Chmod gradlew
+      run: chmod +x gradlew
+
+    - name: Gradle task shadowJar
+      run: ./gradlew shadowJar
+
+    - name: Run jar
+      run: java -jar build/libs/gh-hosts-1.0-all.jar
+
+    - name: Clear build
+      run: rm -rf build/
+
+    - name: Commit
+      id: commit
+      run: |
+        git config --global user.email omoshiroi@foxmail.com
+        git config --global user.name OmO
+        git add .
+        git commit -m "refresh in `date` via CI."
+      continue-on-error: true
+
+    - name: Check on failures
+      if: steps.commit.outputs.status == 'failure'
+      run: exit 1
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
