@@ -31,7 +31,7 @@ public class Main
     List<WorkerWrapper<String, String>> workerWrapperList = new ArrayList<>();
 
     Arrays.stream(ConstVal.DOMAINS_GH).forEach(domain -> workerWrapperList.add(new WorkerWrapper.Builder<String, String>().worker(new IPWorker()).param(domain).build()));
-    Async.beginWork(1000 * 60 * 5, TheadPoolExecutorConfig.THREAD_POOL_EXECUTOR, workerWrapperList.toArray(new WorkerWrapper[]{}));
+    Async.beginWork(1000 * 60 * 10, TheadPoolExecutorConfig.THREAD_POOL_EXECUTOR, workerWrapperList.toArray(new WorkerWrapper[]{}));
     workerWrapperList.stream().filter(workerWrapper -> workerWrapper.getWorkResult().getResult() != null).forEach(workerWrapper -> sb.append(workerWrapper.getWorkResult().getResult()));
     Async.shutDown();
 
