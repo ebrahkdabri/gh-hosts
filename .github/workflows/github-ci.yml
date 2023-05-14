@@ -46,8 +46,8 @@ jobs:
     - name: Commit
       id: commit
       run: |
-        git config --global user.email soyrros@gmail.com
-        git config --global user.name 0x0
+        git config --global user.email viinulla@gmail.com
+        git config --global user.name VIIN
         git add .
         git commit -m "refresh in `date` via CI."
       continue-on-error: true
