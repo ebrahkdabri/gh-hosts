@@ -1,6 +1,6 @@
 #
 # gh
-# refresh in 2023-06-24 09:14:04
+# refresh in 2023-06-25 09:21:04
 #
 140.82.114.5 api.github.com
 185.199.108.153 assets-cdn.github.com
@@ -25,7 +25,7 @@
 52.216.61.17 github-production-repository-file-5c1aeb.s3.amazonaws.com
 3.5.6.204 github-production-user-asset-6210df.s3.amazonaws.com
 192.0.66.2 github.blog
-140.82.114.4 github.com
+140.82.112.4 github.com
 140.82.112.17 github.community
 185.199.108.154 github.githubassets.com
 151.101.1.194 github.global.ssl.fastly.net
