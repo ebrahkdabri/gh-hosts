@@ -1,8 +1,8 @@
 #
 # gh
-# refresh in 2023-11-21 08:55:38
+# refresh in 2023-11-22 08:56:54
 #
-140.82.113.5 api.github.com
+140.82.112.5 api.github.com
 185.199.108.153 assets-cdn.github.com
 185.199.108.133 avatars.githubusercontent.com
 185.199.108.133 avatars0.githubusercontent.com
@@ -19,7 +19,7 @@
 185.199.108.133 desktop.githubusercontent.com
 185.199.108.133 favicons.githubusercontent.com
 140.82.113.3 gist.github.com
-16.182.103.129 github-cloud.s3.amazonaws.com
+3.5.29.121 github-cloud.s3.amazonaws.com
 3.5.9.193 github-com.s3.amazonaws.com
 3.5.29.94 github-production-release-asset-2e65be.s3.amazonaws.com
 3.5.27.180 github-production-repository-file-5c1aeb.s3.amazonaws.com
